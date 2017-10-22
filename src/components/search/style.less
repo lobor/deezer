@@ -1,0 +1,25 @@
+@import (reference) "~styles/constants.less";
+
+.search {
+  padding: @padding;
+  width: 100%;
+  background-color: @backgroundDark;
+  display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  input {
+    width: 100%;
+  }
+
+  .btn {
+    margin-left: @margin;
+    font-size: 35px;
+    &:hover {
+      background-color: #0b66cd;
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+}

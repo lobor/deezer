@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test component button test render primary 1`] = `
+<button
+  className="btn btn-primary"
+/>
+`;
+
+exports[`test component button test render with text 1`] = `
+<button
+  className="btn"
+>
+  Toto
+</button>
+`;

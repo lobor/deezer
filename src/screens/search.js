@@ -1,114 +1,77 @@
 import React from 'react'
-import axios from 'axios'
+import { connect } from 'react-redux'
+import { debounce } from 'underscore'
 
-var instance = axios.create({
-  baseURL: 'https://cors-anywhere.herokuapp.com/http://api.deezer.com/search/',
-  headers: {
-    'Access-Control-Request-Credentials': 'true',
-    'Acces-Control-Allow-Origin': '*'
+import { sort, filter } from 'actions/search'
+import { searchTrack } from 'actions/search'
+import { DataGrid, Search } from 'components'
+
+
+const headerDatagrid = [
+  {
+    title: '',
+    key: 'picture',
+    type: 'img'
+  },
+  {
+    title: 'Titre',
+    key: 'title',
+    sort: true,
+    filter: true
+  },
+  {
+    title: 'Artist',
+    key: 'artist',
+    sort: true,
+    filter: true
   }
-});
+];
 
-export default class Search extends React.Component {
-  state = {
-    result: [],
-    loading: false,
-    index: 0
+const DataGridRedux = connect(({ search }) => ({ ...search, header: headerDatagrid }), { sort, filter })(DataGrid)
+
+export class SearchScreen extends React.Component {
+  index = 25;
+  value = null;
+  request = null;
+
+  componentWillUnmount() {
+    this.scroll = debounce(this.scroll, 200);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     window.addEventListener('scroll', this.scroll);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.scroll);
+  }
+
   scroll = (e) => {
-    console.log(document.body.offsetHeight, window.scrollY);
-    if (document.body.offsetHeight - window.scrollY) {
-
+    var scrollTop = window.scrollY,
+        windowHeight = window.innerHeight,
+        scrollheight = document.body.scrollHeight;
+    if ((scrollTop / (scrollheight - windowHeight)) * 100 > 80 && !this.request && !this.props.endSearch) {
+      this.index += 25;
+      this.request = this.props.searchTrack(this.value, this.index).then(() => {
+        this.request = null
+      })
     }
   }
 
-  onChange = () => {
-
+  submit = (e) => {
+    e.stopPropagation()
+    e.preventDefault()
+    this.value = e.currentTarget.elements[0].value;
+    this.props.searchTrack(e.currentTarget.elements[0].value)
   }
 
-  onSubmit = (e) => {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    this.setState({ loading: true })
-
-    instance.get(`/track?q=${this.search.value}"&index=${this.state.index}`)
-    .then((response) => {
-      let result = [];
-      for (let res of response.data.data) {
-        result.push({
-          artist: res.artist.name,
-          title: res.title
-        })
-      }
-      this.setState({ result, loading: false })
-    })
-  }
-
-  sort(key) {
-    let { result } = this.state;
-    result = result.sort((a, b) => {
-      let first = a[key];
-      let last = b[key];
-      // switch (item.className) {
-      //   case 'desc':
-      //     first = b[key];
-      //     last = a[key];
-      //     break;
-      // }
-      return first.localeCompare(last);
-    });
-
-    this.setState({ result });
-  }
-
-  checked = (e) => {
-    this.setState({ type: e.currentTarget.value })
+  shouldComponentUpdate(nextProps) {
+    return false
   }
 
   render() {
-    let { result, loading } = this.state;
-    return (
-      <div>
-        <div>
-          <form  onSubmit={this.onSubmit}>
-            <input name="search" ref={(input) => this.search = input} type="text" onChange={this.onChange} /> <button>Search</button>
-          </form>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th style={{ cursor: 'pointer' }} onClick={() => this.sort('title')}>
-                Titre
-              </th>
-              <th style={{ cursor: 'pointer' }} onClick={() => this.sort('artist')}>
-                Artiste
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {loading && <tr><td colSpan="2" style={{ textAlign: 'center' }}>Loading...</td></tr>}
-            {!loading && result.map((data, i) => {
-              return (
-                <tr key={i}>
-                  <td>
-                    {data.title}
-                  </td>
-                  <td>
-                    {data.artist}
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </div>
-    )
+    return [<Search ref="search" key="search" submit={this.submit} />, <DataGridRedux key="grid" />];
   }
 }
+
+export default connect((state) => state.search, { searchTrack })(SearchScreen);

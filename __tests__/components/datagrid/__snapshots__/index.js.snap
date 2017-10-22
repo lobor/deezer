@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test datagrid button test render 1`] = `
+<table
+  className="datagrid"
+  onMouseUp={[Function]}
+>
+  <thead>
+    <tr>
+      <th
+        onClick={[Function]}
+        style={
+          Object {
+            "width": "25px",
+          }
+        }
+      >
+        <span
+          className={null}
+        >
+          
+        </span>
+      </th>
+      <th
+        className="slider"
+        onMouseDown={[Function]}
+      />
+      <th
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span
+          className={null}
+        >
+          Titre
+        </span>
+      </th>
+      <th
+        className="slider"
+        onMouseDown={[Function]}
+      />
+      <th
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span
+          className={null}
+        >
+          Artist
+        </span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src="haha"
+        />
+      </td>
+      <td
+        className="slider"
+      />
+      <td>
+        Toto
+      </td>
+      <td
+        className="slider"
+      />
+      <td>
+        Titi
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

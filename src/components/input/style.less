@@ -1,0 +1,21 @@
+@import (reference) "~styles/constants.less";
+
+.input {
+  background-color: #d1d1d7;
+  border: 0;
+  border-radius: @borderRadius;
+  box-sizing: border-box;
+  color: #42424d;
+  display: block;
+  font-size: 12px;
+  height: 32px;
+  line-height: 1.33333333;
+  padding: 8px 40px 8px 12px;
+  transition-duration: .15s;
+  transition-property: background-color,color;
+  width: 100%;
+  &:focus {
+    background-color: #fff;
+    color: #23232d;
+  }
+}

@@ -1,0 +1,78 @@
+@import (reference) "~styles/constants.less";
+
+.datagrid {
+  padding: @padding;
+  width: 100%;
+
+  thead {
+    border-bottom: 1px solid @backgroundDark;
+    box-shadow: 1px -4px 5px 4px #737373;
+  }
+
+  th, td {
+    user-select: none;
+    vertical-align: middle;
+    &.slider{
+      padding: 0;
+      background-color: @backgroundDark;
+      width: 2px;
+    }
+  }
+
+  th {
+    &.slider {
+      cursor: col-resize;
+    }
+  }
+
+  th:not(.slider) {
+    padding: @padding;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    span {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &:after {
+        position: absolute;
+        right: 10px;
+      }
+      &.asc {
+        &:after {
+          content: '\25B2'
+        }
+      }
+      &.desc {
+        &:after {
+          content: '\25BC'
+        }
+      }
+
+      label {
+          margin-right: 30px;
+      }
+    }
+  }
+
+  tr {
+    &:hover {
+      background-color: #969696;
+    }
+  }
+
+  td {
+    padding: @padding;
+    &.init {
+      margin-top: 15%;
+      position: absolute;
+      width: 100%;
+    }
+
+    img {
+      width: 25px;
+    }
+  }
+}

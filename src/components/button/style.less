@@ -1,0 +1,21 @@
+@import (reference) "~styles/constants.less";
+
+.btn {
+  border: 1px solid transparent;
+  border-radius: @borderRadius;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 16px;
+  margin: 0;
+  padding: 7px 12px;
+  position: relative;
+  text-align: center;
+  transition-duration: .15s;
+  transition-property: background-color,border-color,color,opacity;
+  vertical-align: middle;
+
+  &.btn-primary {
+    background-color: @primaryColor;
+  }
+}

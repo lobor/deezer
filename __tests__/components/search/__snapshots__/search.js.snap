@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test search button check submit 1`] = `
+<form
+  className="search"
+  onSubmit={[Function]}
+>
+  <input
+    className="input"
+    name="search"
+    placeholder="Search"
+    type="text"
+  />
+  <button
+    className="btn btn-primary"
+  >
+    ⌕
+  </button>
+</form>
+`;
+
+exports[`test search button test render 1`] = `
+<form
+  className="search"
+  onSubmit={undefined}
+>
+  <input
+    className="input"
+    name="search"
+    placeholder="Search"
+    type="text"
+  />
+  <button
+    className="btn btn-primary"
+  >
+    ⌕
+  </button>
+</form>
+`;

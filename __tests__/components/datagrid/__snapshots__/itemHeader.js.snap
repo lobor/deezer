@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test components itemHeader test render 1`] = `
+<th
+  onClick={[Function]}
+  style={Object {}}
+>
+  <span
+    className={null}
+  >
+    Toto
+  </span>
+</th>
+`;
+
+exports[`test components itemHeader test render width filter 1`] = `
+<th
+  onClick={[Function]}
+  style={Object {}}
+>
+  <span
+    className={null}
+  >
+    Toto
+    <label>
+      <input
+        className="input"
+        name=""
+        onChange={
+          Object {
+            "addMatchers": [Function],
+            "autoMockOff": [Function],
+            "autoMockOn": [Function],
+            "clearAllMocks": [Function],
+            "clearAllTimers": [Function],
+            "deepUnmock": [Function],
+            "disableAutomock": [Function],
+            "doMock": [Function],
+            "dontMock": [Function],
+            "enableAutomock": [Function],
+            "fn": [Function],
+            "genMockFn": [Function],
+            "genMockFromModule": [Function],
+            "genMockFunction": [Function],
+            "isMockFunction": [Function],
+            "mock": [Function],
+            "requireActual": [Function],
+            "requireMock": [Function],
+            "resetAllMocks": [Function],
+            "resetModuleRegistry": [Function],
+            "resetModules": [Function],
+            "restoreAllMocks": [Function],
+            "runAllImmediates": [Function],
+            "runAllTicks": [Function],
+            "runAllTimers": [Function],
+            "runOnlyPendingTimers": [Function],
+            "runTimersToTime": [Function],
+            "setMock": [Function],
+            "setTimeout": [Function],
+            "spyOn": [Function],
+            "unmock": [Function],
+            "useFakeTimers": [Function],
+            "useRealTimers": [Function],
+          }
+        }
+        placeholder="filter"
+        type="text"
+      />
+    </label>
+  </span>
+</th>
+`;
