@@ -2,11 +2,11 @@ import { LOAD, FAILED, OK, SORT, FILTER, ADD, EMPTY } from 'constants/search'
 import { sort, getApi, filter } from 'transform/search'
 
 const initialState = {
-  resultApi: [],
-  showResult: [],
-  loading: false,
-  failed: false,
-  endSearch: false
+  resultApi: [], // result return by api
+  showResult: [], // result to show
+  loading: false, // show loading text
+  failed: false, // show failed text
+  endSearch: false  // not call api on infinite scroll
 };
 
 export default function search (state = initialState, { type, payload }) {
@@ -19,7 +19,6 @@ export default function search (state = initialState, { type, payload }) {
       dataFormatted = state.resultApi.concat(getApi(payload.datas));
       return { ...state, loading: false, failed: false,  resultApi: dataFormatted, showResult: dataFormatted };
     case EMPTY:
-    console.log('ici');
       return { ...state, endSearch: true, loading: false, failed: false };
     case LOAD:
       return { ...state, loading: true, failed: false }

@@ -1,6 +1,142 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test datagrid button test render 1`] = `
+exports[`datagrid button failed 1`] = `
+<table
+  className="datagrid"
+  onMouseUp={[Function]}
+>
+  <thead>
+    <tr>
+      <th
+        onClick={[Function]}
+        style={
+          Object {
+            "width": "25px",
+          }
+        }
+      >
+        <span
+          className={null}
+        >
+          
+        </span>
+      </th>
+      <th
+        className="slider"
+        onMouseDown={[Function]}
+      />
+      <th
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span
+          className={null}
+        >
+          Titre
+        </span>
+      </th>
+      <th
+        className="slider"
+        onMouseDown={[Function]}
+      />
+      <th
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span
+          className={null}
+        >
+          Artist
+        </span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        colSpan="3"
+        style={
+          Object {
+            "textAlign": "center",
+          }
+        }
+      >
+        Oups, the request failed
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`datagrid button loading 1`] = `
+<table
+  className="datagrid"
+  onMouseUp={[Function]}
+>
+  <thead>
+    <tr>
+      <th
+        onClick={[Function]}
+        style={
+          Object {
+            "width": "25px",
+          }
+        }
+      >
+        <span
+          className={null}
+        >
+          
+        </span>
+      </th>
+      <th
+        className="slider"
+        onMouseDown={[Function]}
+      />
+      <th
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span
+          className={null}
+        >
+          Titre
+        </span>
+      </th>
+      <th
+        className="slider"
+        onMouseDown={[Function]}
+      />
+      <th
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span
+          className={null}
+        >
+          Artist
+        </span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        colSpan="3"
+        style={
+          Object {
+            "textAlign": "center",
+          }
+        }
+      >
+        Loading...
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`datagrid button render with data 1`] = `
 <table
   className="datagrid"
   onMouseUp={[Function]}
@@ -55,7 +191,7 @@ exports[`test datagrid button test render 1`] = `
     <tr>
       <td>
         <img
-          src="haha"
+          src="picture"
         />
       </td>
       <td
@@ -69,6 +205,113 @@ exports[`test datagrid button test render 1`] = `
       />
       <td>
         Titi
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img
+          src="picture"
+        />
+      </td>
+      <td
+        className="slider"
+      />
+      <td>
+        barr
+      </td>
+      <td
+        className="slider"
+      />
+      <td>
+        foo
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img
+          src="picture"
+        />
+      </td>
+      <td
+        className="slider"
+      />
+      <td>
+        zoro
+      </td>
+      <td
+        className="slider"
+      />
+      <td>
+        LMFAO
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`datagrid button render without data 1`] = `
+<table
+  className="datagrid"
+  onMouseUp={[Function]}
+>
+  <thead>
+    <tr>
+      <th
+        onClick={[Function]}
+        style={
+          Object {
+            "width": "25px",
+          }
+        }
+      >
+        <span
+          className={null}
+        >
+          
+        </span>
+      </th>
+      <th
+        className="slider"
+        onMouseDown={[Function]}
+      />
+      <th
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span
+          className={null}
+        >
+          Titre
+        </span>
+      </th>
+      <th
+        className="slider"
+        onMouseDown={[Function]}
+      />
+      <th
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span
+          className={null}
+        >
+          Artist
+        </span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        className="init"
+        colSpan="3"
+        style={
+          Object {
+            "textAlign": "center",
+          }
+        }
+      >
+        Search tracks
       </td>
     </tr>
   </tbody>

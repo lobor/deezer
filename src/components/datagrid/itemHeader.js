@@ -1,6 +1,9 @@
 import React from 'react'
 import Input from './../input'
 
+/**
+ * ItemHeader component
+ */
 export default class ItemHeader extends React.Component {
   static defaultProps = {
     sort: ()=>{}
@@ -10,6 +13,10 @@ export default class ItemHeader extends React.Component {
     className: null
   }
 
+  /**
+   * event click for filter
+   * @param  {event} e [description]
+   */
   click = (e) => {
     if (this.props.sort && e.target.tagName !== 'INPUT') {
       let className = this.state.className;

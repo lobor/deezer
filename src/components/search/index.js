@@ -5,6 +5,9 @@ import Input from './../input'
 
 import './style.less'
 
+/**
+ * Form for search
+ */
 export default class Search extends React.Component {
   render() {
     let { submit } = this.props

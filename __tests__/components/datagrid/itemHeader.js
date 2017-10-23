@@ -27,8 +27,13 @@ describe('test components itemHeader', () => {
     );
     let tree = component.toJSON();
     tree.props.sort = jest.fn();
+    let instance = component.getInstance();
+    expect(instance.state.className).toEqual(null)
     tree.props.onClick({ target: { tagName: 'TD' } });
+    expect(instance.state.className).toEqual('asc')
     tree.props.onClick({ target: { tagName: 'TD' } });
+    expect(instance.state.className).toEqual('desc')
     tree.props.onClick({ target: { tagName: 'TD' } });
+    expect(instance.state.className).toEqual(null)
   })
 })

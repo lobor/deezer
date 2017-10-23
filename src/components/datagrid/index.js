@@ -3,10 +3,13 @@ import ItemHeader from './itemHeader'
 import { throttle } from 'underscore'
 import './style.less'
 
+/**
+ * Datagrid
+ * create header and body of table
+ */
 export default class DataGrid extends React.Component {
-  elSlider = null;
-  index = 0;
-  correctionSlide = 0;
+  elSlider = null; // element at modify width when modify column size
+  index = 0; // use for call api index
 
   static defaultProps = {
     loading: false,
@@ -15,20 +18,34 @@ export default class DataGrid extends React.Component {
     header: []
   }
 
+  /**
+   * throttle function move for ameliorate performance
+   */
   componentWillMount() {
     this.move = throttle(this.move, 50)
   }
 
+  /**
+   * enable event mousemove on mousedown slider
+   * @param  {event} e [description]
+   */
   enable = (e) => {
     this.elSlider = e.currentTarget.previousSibling;
     window.addEventListener("mousemove", this.move);
   }
 
+  /**
+   * disable event mousemove on mouseup slider
+   */
   disable = () => {
     this.elSlider = null;
     window.removeEventListener("mousemove", this.move);
   }
 
+  /**
+   * event launch when user slide slider
+   * @param  {event} e [description]
+   */
   move = (e) => {
     this.elSlider.style.width = (e.screenX - this.elSlider.offsetLeft - 2) + 'px'
   }
@@ -72,11 +89,14 @@ export default class DataGrid extends React.Component {
             )
           })}
 
-          {loading && <tr><td colSpan="3" style={{ textAlign: 'center' }}>Loading...</td></tr>}
+          {/* show loading text when call */}
+          {loading && <tr><td colSpan="5" style={{ textAlign: 'center' }}>Loading...</td></tr>}
 
-          {failed && <tr><td colSpan="3" style={{ textAlign: 'center' }}>Oups, the request failed</td></tr>}
+          {/* show failed text when call failed */}
+          {failed && <tr><td colSpan="5" style={{ textAlign: 'center' }}>Oups, the request failed</td></tr>}
 
-          {!loading && !failed && !showResult.length && <tr><td className="init" colSpan="3" style={{ textAlign: 'center' }}>Search tracks</td></tr>}
+          {/* show initial text */}
+          {!loading && !failed && !showResult.length && <tr><td className="init" colSpan="5" style={{ textAlign: 'center' }}>Search tracks</td></tr>}
         </tbody>
       </table>
     );
