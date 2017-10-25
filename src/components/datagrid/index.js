@@ -73,6 +73,7 @@ export default class DataGrid extends React.Component {
           </tr>
         </thead>
         <tbody ref={(x) => this.body = x}>
+          {/* show result on call */}
           {showResult.length !== 0 && showResult.map((data, i) => {
             return (
               <tr key={i}>
