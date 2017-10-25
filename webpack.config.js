@@ -74,7 +74,16 @@ if (__PROD__) {
   config.devServer = {
     contentBase: path.join(__dirname, "dist"),
     port: 8080,
-    hot: true
+    hot: true,
+    host: 'localhost',
+    proxy: {
+      '^/deezer.*': {
+        changeOrigin: true,
+        target: 'http://api.deezer.com/search',
+        secure: false,
+        pathRewrite: {"^/deezer" : ""}
+      }
+    }
   }
 }
 
