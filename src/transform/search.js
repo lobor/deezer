@@ -41,7 +41,6 @@ export function getApi(datas) {
 
 
 export function resetHeader(keyColumn, type, headers) {
-  console.log(type);
   for (let header of headers) {
     if (header.className !== null && header.key !== keyColumn){
       header.className = null;
