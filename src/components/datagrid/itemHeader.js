@@ -9,17 +9,13 @@ export default class ItemHeader extends React.Component {
     sort: ()=>{}
   }
 
-  state = {
-    className: null
-  }
-
   /**
    * event click for filter
    * @param  {event} e [description]
    */
   click = (e) => {
     if (this.props.sort && e.target.tagName !== 'INPUT') {
-      let className = this.state.className;
+      let className = this.props.className;
 
       if (className === 'asc') {
         className = 'desc'
@@ -30,8 +26,11 @@ export default class ItemHeader extends React.Component {
       }
 
       this.props.sort(className);
-      this.setState({ className });
     }
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return nextProps.className !== this.props.className
   }
 
   render() {
@@ -40,10 +39,9 @@ export default class ItemHeader extends React.Component {
       sort,
       filter,
       type,
+      className,
       ...props
     } = this.props;
-
-    let { className } = this.state;
 
     var style = {};
     if (type === 'img') {

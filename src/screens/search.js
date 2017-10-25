@@ -6,35 +6,12 @@ import { sort, filter } from 'actions/search'
 import { searchTrack } from 'actions/search'
 import { DataGrid, Search } from 'components'
 
-/**
- * Data for load header of datagrid
- * @type {Array}
- */
-const headerDatagrid = [
-  {
-    title: '',
-    key: 'picture',
-    type: 'img'
-  },
-  {
-    title: 'Titre',
-    key: 'title',
-    sort: true,
-    filter: true
-  },
-  {
-    title: 'Artist',
-    key: 'artist',
-    sort: true,
-    filter: true
-  }
-];
 
 /**
  * Connect Datagrid with store
  * @type {[type]}
  */
-const DataGridRedux = connect(({ search }) => ({ ...search, header: headerDatagrid }), { sort, filter })(DataGrid)
+const DataGridRedux = connect(({ search }) => search, { sort, filter })(DataGrid)
 
 /**
  * Screen of search

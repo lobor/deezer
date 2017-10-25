@@ -38,3 +38,16 @@ export function getApi(datas) {
   }
   return result;
 }
+
+
+export function resetHeader(keyColumn, type, headers) {
+  console.log(type);
+  for (let header of headers) {
+    if (header.className !== null && header.key !== keyColumn){
+      header.className = null;
+    } else if (header.key === keyColumn) {
+      header.className = type;
+    }
+  }
+  return headers;
+}

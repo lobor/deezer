@@ -25,7 +25,9 @@ let config = {
           {
             loader: "style-loader" // creates style nodes from JS strings
           }, {
-            loader: "css-loader" // translates CSS into CommonJS
+            loader: "css-loader", options: { importLoaders: 2 } // translates CSS into CommonJS
+          }, {
+            loader: "postcss-loader", options: { plugins: function() { return [require('autoprefixer')]; } }
           }, {
             loader: "less-loader" // compiles Less to CSS
           }
